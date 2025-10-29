@@ -2,35 +2,10 @@ import { useState } from "react";
 import { heroData } from "../constants";
 import type { HeroType } from "../types";
 import Navbar from "./Navbar";
-import { motion, AnimatePresence, easeInOut } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa6";
 import { UpdateFollower } from "react-mouse-follower";
-
-const SlideRight = (delay: number) => {
-  return {
-    hidden: {
-      opacity: 0,
-      x: 100,
-    },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.5,
-        delay: delay,
-        ease: easeInOut,
-      },
-    },
-    exit: {
-      opacity: 0,
-      x: -50,
-      transition: {
-        duration: 0.2,
-        ease: easeInOut,
-      },
-    },
-  };
-};
+import { slideRight } from "../utils/utils";
 
 function Hero() {
   const [activeData, setActiveData] = useState<HeroType | null>(heroData[0]);
@@ -60,7 +35,7 @@ function Hero() {
                 >
                   <motion.h1
                     key={activeData?.id}
-                    variants={SlideRight(0.2)}
+                    variants={slideRight(0.2)}
                     initial="hidden"
                     animate="show"
                     exit="exit"
@@ -73,7 +48,7 @@ function Hero() {
               <AnimatePresence mode="wait">
                 <motion.p
                   key={activeData?.id}
-                  variants={SlideRight(0.4)}
+                  variants={slideRight(0.4)}
                   initial="hidden"
                   animate="show"
                   exit="exit"
@@ -99,7 +74,7 @@ function Hero() {
                 >
                   <motion.button
                     key={activeData?.id}
-                    variants={SlideRight(0.6)}
+                    variants={slideRight(0.6)}
                     initial="hidden"
                     animate="show"
                     exit="exit"

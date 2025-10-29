@@ -7,3 +7,11 @@ export type HeroType = {
   model: string;
   bgColor: string;
 };
+
+export type Product = {
+  id: number;
+  image: string;
+  title: string;
+  desc: string;
+  delay: number;
+};

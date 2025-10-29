@@ -1,6 +1,7 @@
 import fanta1 from "../assets/fanta1.png";
 import fanta2 from "../assets/fanta2.png";
 import fanta3 from "../assets/fanta3.png";
+import type { Product } from "../types";
 
 export const navbarMenu = [
   {
@@ -60,5 +61,30 @@ export const heroData = [
     price: "$100",
     model: "Coca",
     bgColor: "#ac1a00",
+  },
+];
+
+// Products
+export const productsData: Product[] = [
+  {
+    id: 1,
+    image: fanta1,
+    title: "Orange Fanta",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, esse maiores sunt itaque facilis vitae suscipit vero eum fugiat dicta.",
+    delay: 0.5,
+  },
+  {
+    id: 2,
+    image: fanta2,
+    title: "Lemon Fanta",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, esse maiores sunt itaque facilis vitae suscipit vero eum fugiat dicta.",
+    delay: 0.8,
+  },
+  {
+    id: 3,
+    image: fanta3,
+    title: "Cola Zero",
+    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, esse maiores sunt itaque facilis vitae suscipit vero eum fugiat dicta.",
+    delay: 1,
   },
 ];

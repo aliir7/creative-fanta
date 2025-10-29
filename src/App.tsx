@@ -1,5 +1,6 @@
 import { UpdateFollower } from "react-mouse-follower";
 import Hero from "./components/Hero";
+import Products from "./components/Products/Products";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         }}
       >
         <Hero />
+        <Products />
       </UpdateFollower>
     </main>
   );

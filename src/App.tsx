@@ -4,6 +4,7 @@ import Products from "./components/Products/Products";
 import Banner from "./components/Banner/Banner";
 import BannerText from "./components/Banner/BannerText";
 import Blogs from "./components/Blogs/Blogs";
+import FAQ from "./components/FAQ/FAQ";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Banner />
         <BannerText />
         <Blogs />
+        <FAQ />
       </UpdateFollower>
     </main>
   );

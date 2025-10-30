@@ -15,3 +15,11 @@ export type Product = {
   desc: string;
   delay: number;
 };
+
+export type Blog = {
+  id: number;
+  title: string;
+  description: string;
+  link: string;
+  image: string;
+};

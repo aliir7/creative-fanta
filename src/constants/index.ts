@@ -1,7 +1,11 @@
 import fanta1 from "../assets/fanta1.png";
 import fanta2 from "../assets/fanta2.png";
 import fanta3 from "../assets/fanta3.png";
-import type { Product } from "../types";
+import blogImg1 from "../assets/Blogs/1.jpg";
+import blogImg2 from "../assets/Blogs/2.jpg";
+import blogImg3 from "../assets/Blogs/3.jpg";
+import blogImg4 from "../assets/Blogs/4.jpg";
+import type { Blog, Product } from "../types";
 
 export const navbarMenu = [
   {
@@ -86,5 +90,41 @@ export const productsData: Product[] = [
     title: "Cola Zero",
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, esse maiores sunt itaque facilis vitae suscipit vero eum fugiat dicta.",
     delay: 1,
+  },
+];
+
+// blogs
+export const blogsData: Blog[] = [
+  {
+    id: 1,
+    title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut unde alias facilis culpa quae pariatur aliquam eligendi debitis itaque sint consequuntur saepe aliquid quibusdam recusandae voluptas, error modi nesciunt",
+    link: "#",
+    image: blogImg1,
+  },
+  {
+    id: 2,
+    title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut unde alias facilis culpa quae pariatur aliquam eligendi debitis itaque sint consequuntur saepe aliquid quibusdam recusandae voluptas, error modi nesciunt",
+    link: "#",
+    image: blogImg2,
+  },
+  {
+    id: 3,
+    title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut unde alias facilis culpa quae pariatur aliquam eligendi debitis itaque sint consequuntur saepe aliquid quibusdam recusandae voluptas, error modi nesciunt",
+    link: "#",
+    image: blogImg3,
+  },
+  {
+    id: 4,
+    title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut unde alias facilis culpa quae pariatur aliquam eligendi debitis itaque sint consequuntur saepe aliquid quibusdam recusandae voluptas, error modi nesciunt",
+    link: "#",
+    image: blogImg4,
   },
 ];

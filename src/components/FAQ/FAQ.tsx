@@ -5,7 +5,6 @@ function FAQ() {
   const [active, setActive] = useState<number | null>(null);
 
   const handleClick = (index: number) => {
-    console.log(active);
     setActive(index === active ? null : index);
   };
   return (
@@ -14,7 +13,10 @@ function FAQ() {
         Frequently Asked Question
       </h3>
       {faqData.map((item, index) => (
-        <div key={index} className="mb-4 border-b border-gray-300 py-4">
+        <div
+          key={index}
+          className="container mb-4 border-b border-gray-300 py-4 md:mx-0 md:px-0"
+        >
           <div
             onClick={() => handleClick(index)}
             className="flex cursor-pointer items-center justify-between py-4 transition-all duration-300"

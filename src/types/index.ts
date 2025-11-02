@@ -23,3 +23,8 @@ export type Blog = {
   link: string;
   image: string;
 };
+
+export type FAQ = {
+  question: string;
+  answer: string;
+};

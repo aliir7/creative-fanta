@@ -5,7 +5,7 @@ import blogImg1 from "../assets/Blogs/1.jpg";
 import blogImg2 from "../assets/Blogs/2.jpg";
 import blogImg3 from "../assets/Blogs/3.jpg";
 import blogImg4 from "../assets/Blogs/4.jpg";
-import type { Blog, Product } from "../types";
+import type { Blog, FAQ, Product } from "../types";
 
 export const navbarMenu = [
   {
@@ -126,5 +126,28 @@ export const blogsData: Blog[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut unde alias facilis culpa quae pariatur aliquam eligendi debitis itaque sint consequuntur saepe aliquid quibusdam recusandae voluptas, error modi nesciunt",
     link: "#",
     image: blogImg4,
+  },
+];
+
+// Frequently Asked Question Data
+export const faqData: FAQ[] = [
+  {
+    question: "What is Fanta?",
+    answer:
+      "Fanta is a popular fruits-flavored carbonated soft drink created by the Coca-Cola Company.",
+  },
+  {
+    question: "What flavors does Fanta offer?",
+    answer:
+      "Fanta offers the variety of flavors including orange, grape, pineapple, and more!",
+  },
+  {
+    question: "Is Fanta gluten-free?",
+    answer:
+      "Yes, Fanta is a gluten-free, making suitable for those with gluten intolerane.",
+  },
+  {
+    question: "How many calories are in a can of Fanta?",
+    answer: "A 12 oz can of Fanta Orange contains about 160 calories.",
   },
 ];

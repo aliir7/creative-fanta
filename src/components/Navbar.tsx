@@ -3,7 +3,6 @@ import logoImg from "../assets/logo.png";
 import { navbarMenu } from "../constants";
 import { FaRegUser } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
-import { UpdateFollower } from "react-mouse-follower";
 import { useState } from "react";
 
 function Navbar() {
@@ -27,37 +26,18 @@ function Navbar() {
           <ul className="flex items-center gap-4">
             {navbarMenu.map((item) => (
               <li key={item.id}>
-                <UpdateFollower
-                  mouseOptions={{
-                    backgroundColor: "white",
-                    zIndex: 9999,
-                    followSpeed: 1.5,
-                    scale: 5,
-                    mixBlendMode: "difference",
-                  }}
+                <a
+                  href={item.link}
+                  className="inline-block px-3 py-2 text-base font-semibold uppercase"
+                  data-mouselabel=""
                 >
-                  <a
-                    href={item.link}
-                    className="inline-block px-3 py-2 text-base font-semibold uppercase"
-                  >
-                    {item.title}
-                  </a>
-                </UpdateFollower>
+                  {item.title}
+                </a>
               </li>
             ))}
-            <UpdateFollower
-              mouseOptions={{
-                backgroundColor: "white",
-                zIndex: 9999,
-                followSpeed: 1.5,
-                scale: 5,
-                mixBlendMode: "difference",
-              }}
-            >
-              <button className="ps-14 text-xl">
-                <FaRegUser />
-              </button>
-            </UpdateFollower>
+            <button className="ps-14 text-xl">
+              <FaRegUser />
+            </button>
           </ul>
         </div>
 

@@ -1,4 +1,3 @@
-import { UpdateFollower } from "react-mouse-follower";
 import Hero from "./components/Hero";
 import Products from "./components/Products/Products";
 import Banner from "./components/Banner/Banner";
@@ -10,21 +9,13 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <main className="overflow-x-hidden">
-      <UpdateFollower
-        mouseOptions={{
-          backgroundColor: "white",
-          zIndex: 10,
-          followSpeed: 1.5,
-        }}
-      >
-        <Hero />
-        <Products />
-        <Banner />
-        <BannerText />
-        <Blogs />
-        <FAQ />
-        <Footer />
-      </UpdateFollower>
+      <Hero />
+      <Products />
+      <Banner />
+      <BannerText />
+      <Blogs />
+      <FAQ />
+      <Footer />
     </main>
   );
 }

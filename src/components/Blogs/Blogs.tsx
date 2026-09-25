@@ -1,4 +1,3 @@
-import { UpdateFollower } from "react-mouse-follower";
 import { blogsData } from "../../constants";
 
 function Blogs() {
@@ -10,29 +9,22 @@ function Blogs() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {blogsData.map((data) => (
-            <UpdateFollower
-              mouseOptions={{
-                backgroundColor: "black",
-                zIndex: 9999,
-                followSpeed: 1.5,
-                text: "read",
-                textFontSize: "3px",
-                scale: 5,
-              }}
+            <div
+              key={data.id}
+              className="mx-auto flex max-w-75 flex-col items-center justify-center gap-6 rounded-md bg-white p-2 shadow-lg transition-all duration-300 hover:-translate-y-2 md:p-5"
+              data-mouselabel="read"
+              data-mousecustom={JSON.stringify({
+                width: "70px",
+                height: "70px",
+                color: "black",
+              })}
             >
-              <div
-                key={data.id}
-                className="mx-auto flex max-w-[300px] flex-col items-center justify-center gap-6 rounded-md bg-white p-2 shadow-lg transition-all duration-300 hover:-translate-y-2 md:p-5"
-              >
-                <img src={data.image} alt={`blog-img-${data.id}`} />
-                <div className="space-y-2">
-                  <h3 className="line-clamp-2 text-xl font-bold">
-                    {data.title}
-                  </h3>
-                  <p className="line-clamp-2">{data.description}</p>
-                </div>
+              <img src={data.image} alt={`blog-img-${data.id}`} />
+              <div className="space-y-2">
+                <h3 className="line-clamp-2 text-xl font-bold">{data.title}</h3>
+                <p className="line-clamp-2">{data.description}</p>
               </div>
-            </UpdateFollower>
+            </div>
           ))}
         </div>
       </div>

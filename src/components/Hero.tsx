@@ -4,7 +4,6 @@ import type { HeroType } from "../types";
 import Navbar from "./Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa6";
-import { UpdateFollower } from "react-mouse-follower";
 import { slideRight } from "../utils/utils";
 
 function Hero() {
@@ -24,27 +23,23 @@ function Hero() {
           <div className="relative z-40 order-2 flex flex-col justify-center py-14 text-white md:order-1 md:py-0 xl:max-w-[500px]">
             <div className="space-y-5 text-center md:text-left">
               <AnimatePresence mode="wait">
-                <UpdateFollower
-                  mouseOptions={{
-                    backgroundColor: "white",
-                    zIndex: 10,
-                    followSpeed: 0.5,
-                    scale: 10,
-                    mixBlendMode: "difference",
-                  }}
+                <motion.h1
+                  key={activeData?.id}
+                  variants={slideRight(0.2)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  className="font-handwriting text-shadow text-3xl font-bold capitalize lg:text-6xl xl:text-7xl"
+                  data-mousecustom={JSON.stringify({
+                    width: "80px",
+                    height: "80px",
+                    color: "white",
+                  })}
                 >
-                  <motion.h1
-                    key={activeData?.id}
-                    variants={slideRight(0.2)}
-                    initial="hidden"
-                    animate="show"
-                    exit="exit"
-                    className="font-handwriting text-shadow text-3xl font-bold capitalize lg:text-6xl xl:text-7xl"
-                  >
-                    {activeData?.title}
-                  </motion.h1>
-                </UpdateFollower>
+                  {activeData?.title}
+                </motion.h1>
               </AnimatePresence>
+
               <AnimatePresence mode="wait">
                 <motion.p
                   key={activeData?.id}
@@ -57,33 +52,25 @@ function Hero() {
                   {activeData?.subtitle}
                 </motion.p>
               </AnimatePresence>
+
               <AnimatePresence mode="wait">
-                <UpdateFollower
-                  mouseOptions={{
-                    backgroundColor: activeData?.bgColor,
-                    zIndex: 9999,
-                    followSpeed: 0.5,
-                    rotate: 720,
-                    scale: 6,
-                    backgroundElement: (
-                      <div>
-                        <img src={activeData?.image} />
-                      </div>
-                    ),
-                  }}
+                <motion.button
+                  key={activeData?.id}
+                  variants={slideRight(0.6)}
+                  initial="hidden"
+                  animate="show"
+                  exit="exit"
+                  style={{ color: activeData?.bgColor }}
+                  className="inline-block rounded-sm bg-white px-4 py-2 font-normal"
+                  data-mouselabel="Order"
+                  data-mousecustom={JSON.stringify({
+                    width: "70px",
+                    height: "70px",
+                    color: activeData?.bgColor ?? "white",
+                  })}
                 >
-                  <motion.button
-                    key={activeData?.id}
-                    variants={slideRight(0.6)}
-                    initial="hidden"
-                    animate="show"
-                    exit="exit"
-                    style={{ color: activeData?.bgColor }}
-                    className="inline-block rounded-sm bg-white px-4 py-2 font-normal"
-                  >
-                    Order Now
-                  </motion.button>
-                </UpdateFollower>
+                  Order Now
+                </motion.button>
               </AnimatePresence>
 
               {/* list sep */}
@@ -97,6 +84,7 @@ function Hero() {
                 <p className="uppercase">Top Recommendation</p>
                 <div className="h-px w-20 bg-white"></div>
               </motion.div>
+
               {/* image switcher */}
               <motion.div
                 className="grid grid-cols-3 gap-10"
@@ -105,40 +93,40 @@ function Hero() {
                 transition={{ duration: 0.5, delay: 0.2, ease: "easeInOut" }}
               >
                 {heroData.map((data) => (
-                  <UpdateFollower
-                    mouseOptions={{
-                      backgroundColor: data.bgColor,
-                      zIndex: 9999,
-                      followSpeed: 0.5,
-                      scale: 5,
-                      text: "View Details",
-                      textFontSize: "3px",
-                    }}
+                  <div
+                    key={data.id}
+                    onClick={() => setActiveData(data)}
+                    className="cursor-pointer space-y-3 transition-all duration-200 hover:scale-105"
+                    data-mouselabel="View Details"
+                    data-mousecustom={JSON.stringify({
+                      width: "80px",
+                      height: "80px",
+                      color: data.bgColor,
+                    })}
                   >
-                    <div
-                      key={data.id}
-                      onClick={() => setActiveData(data)}
-                      className="cursor-pointer space-y-3 transition-all duration-200 hover:scale-105"
-                    >
-                      <div className="flex justify-center">
-                        <img
-                          src={data.image}
-                          alt={data.title}
-                          className={`img-shadow w-20 ${activeData?.image === data.image ? "scale-110 opacity-100" : "opacity-50"}`}
-                        />
-                      </div>
-                      <div className="mt-6! space-y-1 text-center">
-                        <p className="text-base line-through opacity-50">
-                          {data.price}
-                        </p>
-                        <p className="text-xl font-bold">{data.price}</p>
-                      </div>
+                    <div className="flex justify-center">
+                      <img
+                        src={data.image}
+                        alt={data.title}
+                        className={`img-shadow w-20 ${
+                          activeData?.image === data.image
+                            ? "scale-110 opacity-100"
+                            : "opacity-50"
+                        }`}
+                      />
                     </div>
-                  </UpdateFollower>
+                    <div className="mt-6! space-y-1 text-center">
+                      <p className="text-base line-through opacity-50">
+                        {data.price}
+                      </p>
+                      <p className="text-xl font-bold">{data.price}</p>
+                    </div>
+                  </div>
                 ))}
               </motion.div>
             </div>
           </div>
+
           {/* hero image */}
           <div className="relative order-1 flex flex-col items-center justify-end md:order-2">
             <AnimatePresence mode="wait">
@@ -177,6 +165,7 @@ function Hero() {
               </motion.div>
             </AnimatePresence>
           </div>
+
           {/* whatsapp icon */}
           <div className="fixed right-10 bottom-10 z-9999 text-3xl text-white mix-blend-difference duration-500 hover:rotate-360">
             <a href="#">
